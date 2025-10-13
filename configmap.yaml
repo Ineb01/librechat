@@ -11,7 +11,7 @@ data:
         availableRegions:
           - "eu-central-1"
         streamRate: 35
-        titleModel: 'anthropic.claude-3-haiku-20240307-v1:0'
+        titleModel: 'amazon.nova-micro-v1:0'
     mcpServers:
       calendar:
         type: sse
