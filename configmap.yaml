@@ -23,3 +23,6 @@ data:
         url: https://n8n.cluster.dphx.eu/mcp/gmail-enhanced/sse
         headers:
           X-API-Key: "${N8N_MCP_API_KEY}"
+      duckduckgo:
+        type: sse
+        url: https://server.smithery.ai/@nickclyde/duckduckgo-mcp-server/mcp
