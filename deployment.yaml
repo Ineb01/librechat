@@ -38,7 +38,7 @@ spec:
         - name: CREDS_IV
           value: "your-16-char-iv-key"
         - name: ALLOW_SOCIAL_LOGIN
-          value: "false"
+          value: "true"
         volumeMounts:
         - name: librechat-data
           mountPath: /app/client/public/images
