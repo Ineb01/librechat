@@ -12,3 +12,14 @@ data:
           - "eu-central-1"
         streamRate: 35
         titleModel: 'anthropic.claude-3-haiku-20240307-v1:0'
+    mcpServers:
+      calendar:
+        type: sse
+        url: https://n8n.cluster.dphx.eu/mcp/my-calendar/sse
+        headers:
+          X-API-Key: "sfmghE4oAFTCCKMtiK2q"
+      gmail-enhanced:
+        type: sse
+        url: https://n8n.cluster.dphx.eu/mcp/gmail-enhanced/sse
+        headers:
+          X-API-Key: "sfmghE4oAFTCCKMtiK2q"
