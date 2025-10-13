@@ -43,12 +43,14 @@ spec:
           value: "true"
         - name: ADMIN_EMAIL
           value: "benjamin.bachmayr@gmail.com"
-        - name: AWS_ACCESS_KEY_ID
+        - name: BEDROCK_AWS_DEFAULT_REGION
+          value: "eu-central-1"
+        - name: BEDROCK_AWS_ACCESS_KEY_ID
           valueFrom:
             secretKeyRef:
               name: aws-credentials
               key: AWS_ACCESS_KEY_ID
-        - name: AWS_SECRET_ACCESS_KEY
+        - name: BEDROCK_AWS_SECRET_ACCESS_KEY
           valueFrom:
             secretKeyRef:
               name: aws-credentials
