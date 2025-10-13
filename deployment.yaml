@@ -26,16 +26,32 @@ spec:
         - name: MONGO_URI
           value: "mongodb://mongodb:27017/LibreChat"
         - name: DOMAIN_CLIENT
-          value: "http://localhost:3080"
+          value: "https://librechat.cluster.dphx.eu"
         - name: DOMAIN_SERVER
-          value: "http://localhost:3080"
+          value: "https://librechat.cluster.dphx.eu"
+        - name: JWT_SECRET
+          value: "your-super-secret-jwt-key-change-this-in-production"
+        - name: JWT_REFRESH_SECRET
+          value: "your-super-secret-refresh-key-change-this-in-production"
+        - name: CREDS_KEY
+          value: "your-32-char-creds-key-change-this"
+        - name: CREDS_IV
+          value: "your-16-char-iv-key"
+        - name: ALLOW_SOCIAL_LOGIN
+          value: "false"
         volumeMounts:
         - name: librechat-data
           mountPath: /app/client/public/images
+        - name: config
+          mountPath: /app/librechat.yaml
+          subPath: librechat.yaml
       volumes:
       - name: librechat-data
         persistentVolumeClaim:
           claimName: librechat-pvc
+      - name: config
+        configMap:
+          name: librechat-config
 ---
 apiVersion: apps/v1
 kind: Deployment
