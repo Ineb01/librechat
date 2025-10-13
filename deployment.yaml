@@ -55,6 +55,11 @@ spec:
             secretKeyRef:
               name: aws-credentials
               key: AWS_SECRET_ACCESS_KEY
+        - name: N8N_MCP_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: n8n-mcp-credentials
+              key: API_KEY
         volumeMounts:
         - name: librechat-data
           mountPath: /app/client/public/images

@@ -17,9 +17,9 @@ data:
         type: sse
         url: https://n8n.cluster.dphx.eu/mcp/my-calendar/sse
         headers:
-          X-API-Key: "sfmghE4oAFTCCKMtiK2q"
+          X-API-Key: "${N8N_MCP_API_KEY}"
       gmail-enhanced:
         type: sse
         url: https://n8n.cluster.dphx.eu/mcp/gmail-enhanced/sse
         headers:
-          X-API-Key: "sfmghE4oAFTCCKMtiK2q"
+          X-API-Key: "${N8N_MCP_API_KEY}"
