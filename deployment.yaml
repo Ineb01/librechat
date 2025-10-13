@@ -41,6 +41,8 @@ spec:
           value: "true"
         - name: ALLOW_REGISTRATION
           value: "true"
+        - name: ADMIN_EMAIL
+          value: "benjamin.bachmayr@gmail.com"
         volumeMounts:
         - name: librechat-data
           mountPath: /app/client/public/images
