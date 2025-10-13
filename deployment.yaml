@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: librechat
+  namespace: applications
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: librechat
+  template:
+    metadata:
+      labels:
+        app: librechat
+    spec:
+      containers:
+      - name: librechat
+        image: ghcr.io/danny-avila/librechat-dev:latest
+        ports:
+        - containerPort: 3080
+        env:
+        - name: HOST
+          value: "0.0.0.0"
+        - name: PORT
+          value: "3080"
+        - name: MONGO_URI
+          value: "mongodb://mongodb:27017/LibreChat"
+        - name: DOMAIN_CLIENT
+          value: "http://localhost:3080"
+        - name: DOMAIN_SERVER
+          value: "http://localhost:3080"
+        volumeMounts:
+        - name: librechat-data
+          mountPath: /app/client/public/images
+      volumes:
+      - name: librechat-data
+        persistentVolumeClaim:
+          claimName: librechat-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+  namespace: applications
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo:6
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: mongodb-data
+          mountPath: /data/db
+      volumes:
+      - name: mongodb-data
+        persistentVolumeClaim:
+          claimName: mongodb-pvc
