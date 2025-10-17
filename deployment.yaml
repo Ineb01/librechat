@@ -64,6 +64,8 @@ spec:
           value: "openid profile email"
         - name: OPENID_CALLBACK_URL
           value: "/oauth/openid/callback"
+        - name: OPENID_BUTTON_LABEL
+          value: "Continue with Authentik"
         - name: BEDROCK_AWS_DEFAULT_REGION
           value: "eu-central-1"
         - name: BEDROCK_AWS_ACCESS_KEY_ID
