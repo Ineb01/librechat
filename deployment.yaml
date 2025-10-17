@@ -54,7 +54,10 @@ spec:
               name: authentik-oidc
               key: CLIENT_SECRET
         - name: OPENID_ISSUER
-          value: "https://authentik.cluster.dphx.eu/application/o/librechat"
+          valueFrom:
+            secretKeyRef:
+              name: authentik-oidc
+              key: ISSUER_URL
         - name: OPENID_SESSION_SECRET
           valueFrom:
             secretKeyRef:
