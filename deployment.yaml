@@ -69,6 +69,11 @@ spec:
           value: "/oauth/openid/callback"
         - name: OPENID_BUTTON_LABEL
           value: "Continue with Authentik"
+        - name: GOOGLE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: google-ai-studio
+              key: API_KEY
         - name: BEDROCK_AWS_DEFAULT_REGION
           value: "eu-central-1"
         - name: BEDROCK_AWS_ACCESS_KEY_ID
