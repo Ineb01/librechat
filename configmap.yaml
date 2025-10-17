@@ -12,14 +12,6 @@ data:
           - "eu-central-1"
         streamRate: 35
         titleModel: 'amazon.nova-micro-v1:0'
-      google:
-        apiKey: "${GOOGLE_KEY}"
-        models:
-          default: [
-            "gemini-1.5-pro-latest",
-            "gemini-1.5-flash-latest",
-            "gemini-1.0-pro"
-          ]
     mcpServers:
       calendar:
         type: sse
