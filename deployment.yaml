@@ -29,20 +29,33 @@ spec:
           value: "https://librechat.cluster.dphx.eu"
         - name: DOMAIN_SERVER
           value: "https://librechat.cluster.dphx.eu"
-        - name: JWT_SECRET
-          value: "your-super-secret-jwt-key-change-this-in-production"
-        - name: JWT_REFRESH_SECRET
-          value: "your-super-secret-refresh-key-change-this-in-production"
-        - name: CREDS_KEY
-          value: "your-32-char-creds-key-change-this"
-        - name: CREDS_IV
-          value: "your-16-char-iv-key"
         - name: ALLOW_SOCIAL_LOGIN
           value: "true"
         - name: ALLOW_REGISTRATION
-          value: "true"
+          value: "false"
         - name: ADMIN_EMAIL
           value: "benjamin.bachmayr@gmail.com"
+        - name: OPENID_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: authentik-oidc
+              key: CLIENT_ID
+        - name: OPENID_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: authentik-oidc
+              key: CLIENT_SECRET
+        - name: OPENID_ISSUER
+          value: "https://authentik.cluster.dphx.eu/application/o/librechat/"
+        - name: OPENID_SESSION_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: authentik-oidc
+              key: SESSION_SECRET
+        - name: OPENID_SCOPE
+          value: "openid profile email"
+        - name: OPENID_CALLBACK_URL
+          value: "https://librechat.cluster.dphx.eu/oauth/openid/callback"
         - name: BEDROCK_AWS_DEFAULT_REGION
           value: "eu-central-1"
         - name: BEDROCK_AWS_ACCESS_KEY_ID
