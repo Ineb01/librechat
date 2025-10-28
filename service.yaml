@@ -14,6 +14,19 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  name: litellm
+  namespace: applications
+spec:
+  selector:
+    app: litellm
+  ports:
+  - port: 4000
+    targetPort: 4000
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
   name: mongodb
   namespace: applications
 spec:

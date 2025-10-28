@@ -12,6 +12,20 @@ data:
           - "eu-central-1"
         streamRate: 35
         titleModel: 'amazon.nova-micro-v1:0'
+      custom:
+        - name: "LiteLLM"
+          apiKey: "user_provided"
+          baseURL: "http://litellm:4000/v1"
+          models:
+            default:
+              - "bedrock-agent"
+            fetch: false
+          titleConvo: true
+          titleModel: "bedrock-agent"
+          summarize: false
+          summaryModel: "bedrock-agent"
+          forcePrompt: false
+          modelDisplayLabel: "LiteLLM"
     mcpServers:
       calendar:
         type: sse
