@@ -5,6 +5,8 @@ metadata:
   namespace: applications
 data:
   config.yaml: |
+    general_settings:
+      master_key: sk-litellm-shared-key-12345
     model_list:
       - model_name: bedrock-agent
         litellm_params:

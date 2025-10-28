@@ -14,7 +14,7 @@ data:
         titleModel: 'amazon.nova-micro-v1:0'
       custom:
         - name: "LiteLLM"
-          apiKey: "user_provided"
+          apiKey: "sk-litellm-shared-key-12345"
           baseURL: "http://litellm:4000/v1"
           models:
             default:
