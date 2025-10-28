@@ -125,6 +125,7 @@ spec:
         image: ghcr.io/berriai/litellm:main-latest
         ports:
         - containerPort: 4000
+        command: ["--config", "/app/config.yaml", "--port", "4000", "--num_workers", "1"]
         env:
         - name: AWS_ACCESS_KEY_ID
           valueFrom:
@@ -136,12 +137,8 @@ spec:
             secretKeyRef:
               name: aws-credentials
               key: AWS_SECRET_ACCESS_KEY
-        - name: AWS_REGION_NAME
+        - name: AWS_REGION
           value: "eu-central-1"
-        - name: LITELLM_MASTER_KEY
-          value: "sk-1234"
-        - name: LITELLM_LOG
-          value: "INFO"
         volumeMounts:
         - name: litellm-config
           mountPath: /app/config.yaml
