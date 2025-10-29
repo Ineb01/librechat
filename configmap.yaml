@@ -14,11 +14,13 @@ data:
         titleModel: 'amazon.nova-micro-v1:0'
       custom:
         - name: "LiteLLM"
-          apiKey: "sk-litellm-shared-key-12345"
+          apiKey: "${LITELLM_OPENAI_API_KEY}"
           baseURL: "http://litellm:4000/v1"
           models:
             default:
               - "bedrock-agent"
+              - "deepseek-r1"
+              - "deepseek-r1-distill-llama-70b"
             fetch: false
           titleConvo: true
           titleModel: "bedrock-agent"

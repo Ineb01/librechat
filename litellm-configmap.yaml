@@ -6,7 +6,7 @@ metadata:
 data:
   config.yaml: |
     general_settings:
-      master_key: sk-litellm-shared-key-12345
+      master_key: os.environ/OPENAI_API_KEY
     model_list:
       - model_name: bedrock-agent
         litellm_params:
@@ -14,3 +14,13 @@ data:
           aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
           aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
           aws_region_name: os.environ/AWS_REGION
+      - model_name: deepseek-r1
+        litellm_params:
+          model: github/deepseek-r1
+          api_key: os.environ/GITHUB_TOKEN
+          api_base: https://models.inference.ai.azure.com
+      - model_name: deepseek-r1-distill-llama-70b
+        litellm_params:
+          model: github/deepseek-r1-distill-llama-70b
+          api_key: os.environ/GITHUB_TOKEN
+          api_base: https://models.inference.ai.azure.com
